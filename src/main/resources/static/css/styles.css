@@ -1,0 +1,168 @@
+body {
+    background-color: #d6f9fb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    padding: 15px;
+    background-color: #87e6ee;
+    width: 100%;
+    height: 100%;
+    max-width: 1000px;
+    max-height: 500px;
+    border-radius: 20px;
+    margin-right: 20px;
+}
+
+.title-container {
+    text-align: start;
+    font-family: "Segoe UI Black", serif;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.button-option {
+    display: inline-block;
+    width: 100%;
+    max-width: 42px;
+    height: 100%;
+    max-height: 42px;
+    cursor: pointer;
+    margin-right: 5px;
+    text-align: center;
+}
+
+.imagen {
+    display: block;
+    margin: 0 auto;
+    width: 25px;
+    height: 25px;
+}
+
+button:hover {
+    background-color: skyblue;
+}
+
+.table-container {
+    width: 100%;
+    height: 100%;
+    max-width: 1000px;
+    max-height: 400px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-productos {
+    background-color: #f0ffff;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.cabecera-table {
+    background-color: #a1ecf2;
+}
+
+.product-row:hover {
+     background-color: #bcf3f7;
+}
+
+th {
+    border-bottom: 1px solid #ddd;
+    font-family: "Courier New", serif;
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+}
+
+
+.button-edit {
+    margin-top: 10px;
+    padding: 10px;
+    display: block;
+    margin-bottom: 5px;
+    width: 100px;
+    height: 50px;
+}
+
+.button-option-add {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 200px) {
+    .table-productos {
+        width: 10%;
+    }
+
+    .table-container {
+        width: 10%;
+    }
+
+    .title-container {
+        width: 10%;
+    }
+}
+
+@media (max-width: 600px) {
+    .producto-form .form-row {
+        flex-direction: column;
+    }
+
+    .producto-form .form-group {
+        padding: 5px 0;
+    }
+
+    .table-productos {
+        width: 30%;
+    }
+
+    .table-container {
+        height: 30%;
+    }
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 50%;
+    }
+
+    .container-options {
+        width: 50%;
+    }
+
+    .table-container {
+        height: 50%;
+    }
+
+    .table-productos {
+        height: 50%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .container {
+        width: 70%;
+    }
+
+    .container-options {
+        width: 70%;
+    }
+
+    .table-container {
+        height: 70%;
+    }
+
+    .table-productos {
+        height: 70%;
+    }
+}

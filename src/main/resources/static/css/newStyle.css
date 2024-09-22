@@ -1,0 +1,102 @@
+/*reset
+ el '*' es un selector universal que se aplica a todos los elementos de la pagina
+*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f8;
+    color: #333;
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    padding: 20px;
+}
+
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #4CAF50;
+}
+
+
+.producto-form .form-row {
+    display: flex;
+    flex-wrap: wrap; /* los elementos hijos se ajusta a una nueva linea si no caben en una sola*/
+    margin-bottom: 15px;
+}
+
+/* Grupos de formulario */
+.producto-form .form-group {
+    flex: 1; /* cada form group ocupa una parte igual del espacio disponible dentro de la fila*/
+    min-width: 200px;
+    padding: 10px;
+}
+
+/* Etiquetas */
+.producto-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Campos de entrada y select */
+.producto-form .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.producto-form .form-control:focus {
+    border-color: #4CAF50;
+    outline: none; /*elimina el contorno predeterminado*/
+}
+
+/* Botón de envío */
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #45a049;
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+    .producto-form .form-row {
+        flex-direction: column;
+    }
+
+    .producto-form .form-group {
+        padding: 5px 0;
+    }
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Confecciones Tita</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/editStyle.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="title-edit" th:text="${titulo}"></h2>
+        <form class="producto-form" th:href="@{productos/editar}" th:object="${producto}" method="post">
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="label-edit" for="descripcion">Descripcion: </label>
+                    <input type="text" id="descripcion" class="form-control" th:field="*{descripcionProducto}">
+                </div>
+                <div class="form-group">
+                    <label class="label-edit" for="stock">Stock: </label>
+                    <input  id="stock" type="number" class="form-control"  th:field="*{stockProducto}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="label-edit" for="precio">Precio: </label>
+                    <input type="number" id="precio" class="form-control"  th:field="*{precioProducto}">
+                </div>
+                <div class="form-group">
+                    <label for="color">Color: </label>
+                    <select id="color" th:field="*{categoriaColor.nombreCategoriaColor}" class="form-control" >
+                        <option th:each="color: ${colores}" th:value="${color.nombreCategoriaColor}" th:text="${color.nombreCategoriaColor}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="temporada">Temporada: </label>
+                    <select id="temporada" class="form-control" th:field="*{categoriaTemporada.nombreCategoriaTemporada}">
+                        <option th:each="temporada: ${temporadas}" th:value="${temporada.nombreCategoriaTemporada}" th:text="${temporada.nombreCategoriaTemporada}"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="material">Material: </label>
+                    <select id="material" th:field="*{categoriaMaterial.nombreCategoriaMaterial}" class="form-control">
+                        <option th:each="material: ${materiales}" th:value="${material.nombreCategoriaMaterial}" th:text="${material.nombreCategoriaMaterial}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="especifica">Especifica: </label>
+                    <select id="especifica" th:field="*{categoriaEspecifica.nombreCategoriaEspecifica}" class="form-control">
+                        <option th:each="especifica: ${categoriasEspecificas}" th:value="${especifica.nombreCategoriaEspecifica}" th:text="${especifica.nombreCategoriaEspecifica.concat(' - ')+especifica.categoriaSecundaria.nombreCategoriaSecundaria}"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="genero">Genero: </label>
+                    <select id="genero" th:field="*{categoriaPrincipal.nombreCategoriaPrincipal}" class="form-control">
+                        <option th:each="genero: ${categoriasPrincipales}" th:value="${genero.nombreCategoriaPrincipal}" th:text="${genero.nombreCategoriaPrincipal}"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="talla">Talla: </label>
+                    <select id="talla" th:field="*{categoriaTalla.categoriaTallaId}" class="form-control">
+                        <option th:each="talla:${tallas}" th:value="${talla.categoriaTallaId}" th:text="${talla.categoriaTallaId}" th:selected="*{categoriaTalla.categoriaTallaId}"></option>
+                    </select>
+                </div>
+            </div>
+
+            <button class="button-edit" type="submit">Actualizar</button>
+        </form>
+    </div>
+
+</body>
+</html>

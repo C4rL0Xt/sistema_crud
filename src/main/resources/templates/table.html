@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Confecciones Tita</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+</head>
+<body>
+<div class="container">
+    <div class="title-container">
+        <h1 th:text="${titulo}"></h1>
+    </div>
+    <div class="table-container">
+        <button class="button-option-add">
+            <a th:href="@{/productos/crear}">
+                <img class="imagen" th:src="@{/images/boton-mas.png}" alt="">
+            </a>
+        </button>
+        <table class="table-productos" th:if="${!productos.isEmpty()}">
+            <thead>
+            <tr class="cabecera-table">
+                <th>ID</th>
+                <th>Stock</th>
+                <th>Precio</th>
+                <th>Descripcion</th>
+                <th>Opciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="product-row" th:each="producto: ${productos}" >
+                <td th:text="${producto.productoId}"></td>
+                <td th:text="${producto.stockProducto}"></td>
+                <td th:text="${producto.precioProducto}"></td>
+                <td th:text="${producto.descripcionProducto}"></td>
+                <td>
+                    <div class="button-container">
+                        <button class="button-option">
+                            <a th:href="@{/productos/editar/{id}(id=${producto.productoId})}">
+                                <img class="imagen" th:src="@{/images/editar.png}" alt="">
+                            </a>
+                        </button>
+                        <div>
+                            <form th:action="@{/productos/delete/{id}(id=${producto.productoId})}" method="post">
+                                <input type="hidden" name="_method" value="delete">
+                                <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?')">
+                                    <img class="imagen" th:src="@{/images/borrar.png}" alt="">
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>
